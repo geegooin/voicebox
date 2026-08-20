@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리 동네 목소리함 – 홈 화면 시안</title>
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="stylesheet" as="style"
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FAF7EF;
+    --surface:#FFFCF5;
+    --surface-container:#F1ECDD;
+    --surface-container-high:#EAE2CC;
+    --outline:#DDD3BC;
+    --outline-variant:#EDE6D5;
+    --on-surface:#4A4130;
+    --on-surface-variant:#6E6249;
+    --primary:#8FA377;
+    --on-primary:#FFFFFF;
+    --primary-container:#E4EADA;
+    --on-primary-container:#34432A;
+    --primary-hover:#71875B;
+    --secondary:#C99368;
+    --secondary-container:#F3E4D2;
+    --on-secondary-container:#5C4324;
+    --placeholder-bg:#DDD8CB;
+    --placeholder-fg:#A79E88;
+    --shadow-sm:0 1px 3px rgba(74,65,48,0.08);
+    --shadow-md:0 6px 16px rgba(143,163,119,0.16);
+    --shadow-lg:0 16px 40px rgba(143,163,119,0.20);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--on-surface);
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  a{color:inherit;}
+
+  /* ---------- 상단 시안 전환 탭 (실제 서비스 화면이 아닌, 이 문서 전용 컨트롤) ---------- */
+  .picker{
+    position:sticky; top:0; z-index:50;
+    background:var(--on-surface); color:#FFFCF5;
+    padding:12px 16px;
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;
+  }
+  .picker-label{font-size:12px; opacity:0.7; letter-spacing:0.02em;}
+  .picker-tabs{display:flex; gap:6px; flex:1 1 auto;}
+  .picker-tabs button{
+    appearance:none; border:1px solid rgba(255,255,255,0.25);
+    background:transparent; color:#FFFCF5;
+    padding:8px 14px; border-radius:999px;
+    font-size:13px; font-weight:600;
+    transition:background .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .picker-tabs button.active{background:var(--primary); border-color:var(--primary); color:#fff;}
+  .picker-desc{font-size:12px; color:#E7E1D2; flex:1 1 100%;}
+
+  .variant{display:none;}
+  .variant.active{display:block;}
+
+  /* ---------- 공통 레이아웃 뼈대 ---------- */
+  .site-header{
+    display:flex; align-items:center; gap:10px;
+    padding:12px 20px;
+    background:var(--surface);
+    border-bottom:1px solid var(--outline-variant);
+  }
+  .site-header img{width:28px; height:28px; border-radius:22%;}
+  .site-header .org-name{font-size:14px; font-weight:700; color:var(--on-surface);}
+  .site-header .org-tag{font-size:11px; color:var(--on-surface-variant); margin-left:2px;}
+
+  .container{max-width:1200px; margin:0 auto; padding:0 20px;}
+
+  .filters{
+    max-width:1200px; margin:0 auto; padding:18px 20px 4px;
+  }
+  .filter-row{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .filter-row:last-child{margin-bottom:0;}
+  .filter-title{font-size:12px; font-weight:700; color:var(--on-surface-variant); width:48px; flex:0 0 auto;}
+
+  .status-seg{
+    display:flex; gap:6px; flex:1 1 auto; flex-wrap:wrap;
+  }
+  .status-seg button{
+    border:1px solid var(--outline); background:var(--surface);
+    color:var(--on-surface); border-radius:999px;
+    font-weight:600; white-space:nowrap;
+  }
+  .status-seg button.active{
+    background:var(--primary); border-color:var(--primary); color:var(--on-primary);
+  }
+
+  .category-scroll{
+    flex:1 1 auto; display:flex; gap:8px;
+    overflow-x:auto; padding-bottom:4px;
+    scrollbar-width:thin;
+  }
+  .category-scroll::-webkit-scrollbar{height:5px;}
+  .category-scroll::-webkit-scrollbar-thumb{background:var(--outline); border-radius:99px;}
+  .category-scroll button{
+    flex:0 0 auto;
+    border:1px solid var(--outline); background:var(--surface-container);
+    color:var(--on-surface-variant); border-radius:999px;
+    font-weight:600; white-space:nowrap;
+  }
+  .category-scroll button.active{
+    background:var(--secondary-container); color:var(--on-secondary-container);
+    border-color:var(--secondary-container);
+  }
+
+  .status-pill{
+    display:inline-flex; align-items:center; border-radius:999px; font-weight:700;
+  }
+  .status-pill.st-접수{background:var(--surface-container-high); color:var(--on-surface-variant);}
+  .status-pill.st-처리중{background:var(--secondary-container); color:var(--on-secondary-container);}
+  .status-pill.st-완료{background:var(--primary-container); color:var(--on-primary-container);}
+
+  .category-pill{
+    display:inline-flex; align-items:center; border-radius:999px;
+    background:var(--surface-container); color:var(--on-surface-variant);
+    border:1px solid var(--outline-variant); font-weight:600;
+  }
+
+  .photo-ph{
+    background:var(--placeholder-bg);
+    display:flex; align-items:center; justify-content:center;
+    flex:0 0 auto; overflow:hidden;
+  }
+  .photo-ph svg{stroke:var(--placeholder-fg);}
+
+  .site-footer{
+    margin-top:40px; border-top:1px solid var(--outline-variant);
+    background:var(--surface-container);
+  }
+  .site-footer .container{padding:24px 20px; font-size:12px; color:var(--on-surface-variant); line-height:1.7;}
+  .site-footer .org-name{font-weight:700; color:var(--on-surface); font-size:13px;}
+  .site-footer .links{margin-top:8px; display:flex; gap:14px;}
+  .site-footer .links a{text-decoration:none; color:var(--on-surface-variant);}
+
+  .cta-btn{
+    appearance:none; border:none; background:var(--primary); color:var(--on-primary);
+    font-weight:700; border-radius:12px; box-shadow:var(--shadow-sm);
+    transition:background .15s ease;
+  }
+  .cta-btn:hover{background:var(--primary-hover);}
+
+  .card-title{font-weight:700; color:var(--on-surface); margin:0;}
+  .card-excerpt{color:var(--on-surface-variant); margin:0;}
+  .card-meta{color:var(--on-surface-variant); display:flex; gap:10px;}
+
+  /* =====================================================================
+     안 A — 강조형 (정보 밀도: 높음 / 사진: 작게 / 히어로: 강한 한 줄)
+     ===================================================================== */
+  .v-a .hero, .v-d .hero{
+    background:linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color:#fff; padding:40px 20px 44px; text-align:center;
+  }
+  .v-a .hero-inner, .v-d .hero-inner{max-width:720px; margin:0 auto;}
+  .v-a .hero h1, .v-d .hero h1{font-size:clamp(24px,5vw,34px); font-weight:800; line-height:1.35; margin:0 0 10px; letter-spacing:-0.01em;}
+  .v-a .hero p, .v-d .hero p{font-size:14px; margin:0 0 22px; color:rgba(255,255,255,0.88);}
+  .v-a .hero .cta-btn, .v-d .hero .cta-btn{background:#fff; color:var(--primary-hover); padding:13px 28px; font-size:15px;}
+  .v-a .hero .cta-btn:hover, .v-d .hero .cta-btn:hover{background:#fff; opacity:0.92;}
+
+  .v-a .filter-row button{padding:7px 13px; font-size:12.5px;}
+
+  .v-a .grid{
+    max-width:1200px; margin:0 auto; padding:16px 20px 8px;
+    display:grid; grid-template-columns:1fr; gap:10px;
+  }
+  @media (min-width:640px){ .v-a .grid{grid-template-columns:repeat(2,1fr);} }
+  @media (min-width:1024px){ .v-a .grid{grid-template-columns:repeat(4,1fr); gap:12px;} }
+
+  .v-a .card{
+    display:flex; gap:10px; background:var(--surface);
+    border:1px solid var(--outline-variant); border-radius:10px;
+    padding:10px; box-shadow:var(--shadow-sm);
+  }
+  .v-a .photo-ph{width:56px; height:56px; border-radius:8px;}
+  .v-a .photo-ph svg{width:20px; height:20px;}
+  .v-a .card-body{min-width:0; flex:1 1 auto; display:flex; flex-direction:column; gap:4px;}
+  .v-a .card-title{font-size:13.5px; line-height:1.35; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden;}
+  .v-a .card-excerpt{font-size:12px; line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .v-a .pill-row{display:flex; gap:5px; margin-top:1px;}
+  .v-a .status-pill,.v-a .category-pill{font-size:10.5px; padding:2.5px 8px;}
+  .v-a .card-meta{font-size:10.5px; margin-top:2px;}
+
+  /* =====================================================================
+     안 B — 여유형 (정보 밀도: 낮음 / 사진: 크게 / 히어로: 차분한 안내)
+     ===================================================================== */
+  .v-b .hero{background:var(--bg); padding:56px 20px 48px;}
+  .v-b .hero-inner{max-width:640px; margin:0 auto; text-align:center;}
+  .v-b .hero .eyebrow{
+    font-size:12.5px; font-weight:700; color:var(--on-primary-container);
+    background:var(--primary-container); display:inline-block;
+    padding:5px 14px; border-radius:999px; margin-bottom:18px;
+  }
+  .v-b .hero h1{font-size:clamp(22px,4.5vw,30px); font-weight:700; line-height:1.5; margin:0 0 14px; color:var(--on-surface);}
+  .v-b .hero p{font-size:15px; line-height:1.75; color:var(--on-surface-variant); margin:0 0 30px;}
+  .v-b .hero .cta-btn{padding:13px 30px; font-size:14.5px;}
+
+  .v-b .filter-row button{padding:9px 16px; font-size:13.5px;}
+
+  .v-b .grid{
+    max-width:920px; margin:0 auto; padding:24px 20px 8px;
+    display:grid; grid-template-columns:1fr; gap:28px;
+  }
+  @media (min-width:700px){ .v-b .grid{grid-template-columns:repeat(2,1fr);} }
+
+  .v-b .card{
+    background:var(--surface); border-radius:18px; overflow:hidden;
+    box-shadow:var(--shadow-md); display:flex; flex-direction:column;
+  }
+  .v-b .photo-ph{width:100%; aspect-ratio:16/9;}
+  .v-b .photo-ph svg{width:46px; height:46px;}
+  .v-b .card-body{padding:22px; display:flex; flex-direction:column; gap:10px;}
+  .v-b .pill-row{display:flex; gap:8px;}
+  .v-b .status-pill,.v-b .category-pill{font-size:12px; padding:5px 13px;}
+  .v-b .card-title{font-size:18px; line-height:1.4;}
+  .v-b .card-excerpt{font-size:14.5px; line-height:1.7; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;}
+  .v-b .card-meta{font-size:13px; margin-top:2px; display:flex; justify-content:space-between; border-top:1px solid var(--outline-variant); padding-top:12px;}
+
+  /* =====================================================================
+     안 C — 균형형 (정보 밀도: 중간 / 사진: 중간 / 히어로: 처리 흐름 안내)
+     ===================================================================== */
+  .v-c .hero{background:var(--surface-container); padding:40px 20px;}
+  .v-c .hero-inner{max-width:960px; margin:0 auto; display:flex; align-items:center; gap:40px; flex-wrap:wrap;}
+  .v-c .hero-text{flex:1 1 320px;}
+  .v-c .hero h1{font-size:clamp(22px,4vw,28px); font-weight:700; line-height:1.45; margin:0 0 10px; color:var(--on-surface);}
+  .v-c .hero p{font-size:14.5px; line-height:1.65; color:var(--on-surface-variant); margin:0 0 20px;}
+  .v-c .hero .cta-btn{padding:12px 24px; font-size:14px;}
+
+  .v-c .flow{flex:1 1 280px; display:flex; align-items:center; justify-content:center; gap:8px; background:var(--surface); border-radius:16px; padding:20px 14px; box-shadow:var(--shadow-sm);}
+  .v-c .flow-step{flex:1; text-align:center;}
+  .v-c .flow-step .dot{
+    width:34px; height:34px; border-radius:50%; margin:0 auto 6px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:800;
+  }
+  .v-c .flow-step:nth-child(1) .dot{background:var(--surface-container-high); color:var(--on-surface-variant);}
+  .v-c .flow-step:nth-child(3) .dot{background:var(--secondary-container); color:var(--on-secondary-container);}
+  .v-c .flow-step:nth-child(5) .dot{background:var(--primary-container); color:var(--on-primary-container);}
+  .v-c .flow-step span{font-size:11.5px; font-weight:700; color:var(--on-surface-variant);}
+  .v-c .flow-arrow{color:var(--outline); font-size:16px; flex:0 0 auto;}
+
+  .v-c .filter-row button, .v-d .filter-row button{padding:8px 15px; font-size:13px;}
+
+  .v-c .grid, .v-d .grid{
+    max-width:1200px; margin:0 auto; padding:20px 20px 8px;
+    display:grid; grid-template-columns:1fr; gap:16px;
+  }
+  @media (min-width:640px){ .v-c .grid, .v-d .grid{grid-template-columns:repeat(2,1fr);} }
+  @media (min-width:1024px){ .v-c .grid, .v-d .grid{grid-template-columns:repeat(3,1fr); gap:18px;} }
+
+  .v-c .card, .v-d .card{
+    display:flex; gap:14px; background:var(--surface);
+    border-radius:14px; padding:14px; box-shadow:var(--shadow-sm);
+  }
+  .v-c .photo-ph, .v-d .photo-ph{width:96px; height:96px; border-radius:10px;}
+  .v-c .photo-ph svg, .v-d .photo-ph svg{width:30px; height:30px;}
+  .v-c .card-body, .v-d .card-body{min-width:0; flex:1 1 auto; display:flex; flex-direction:column; gap:6px;}
+  .v-c .pill-row, .v-d .pill-row{display:flex; gap:6px;}
+  .v-c .status-pill,.v-c .category-pill,.v-d .status-pill,.v-d .category-pill{font-size:11.5px; padding:3px 10px;}
+  .v-c .card-title, .v-d .card-title{font-size:15.5px; line-height:1.4; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden;}
+  .v-c .card-excerpt, .v-d .card-excerpt{font-size:13px; line-height:1.55; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .v-c .card-meta, .v-d .card-meta{font-size:11.5px; margin-top:2px;}
+
+</style>
+</head>
+<body>
+
+  <!-- 이 상단 바는 시안 검토용 전환 탭이며, 실제 서비스 화면에는 포함되지 않습니다 -->
+  <div class="picker">
+    <span class="picker-label">홈 화면 시안</span>
+    <div class="picker-tabs">
+      <button type="button" data-target="v-a" class="active">안 1 · 강조형</button>
+      <button type="button" data-target="v-b">안 2 · 여유형</button>
+      <button type="button" data-target="v-c">안 3 · 균형형</button>
+      <button type="button" data-target="v-d">안 4 · 조합형</button>
+    </div>
+    <div class="picker-desc" id="picker-desc"></div>
+  </div>
+
+  <!-- ============================== 안 A ============================== -->
+  <section class="variant v-a active" id="v-a">
+    <header class="site-header">
+      <img src="data:image/png;base64,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" alt="지구인상점 아이콘">
+      <span class="org-name">지구인상점</span>
+      <span class="org-tag">운영</span>
+    </header>
+
+    <div class="hero">
+      <div class="hero-inner">
+        <h1>우리 동네 불편, 지금 바로 목소리를 남기세요</h1>
+        <p>가로등부터 놀이터까지 — 남긴 의견은 지구인상점이 접수하고 처리 결과까지 알려드려요.</p>
+        <button type="button" class="cta-btn">의견 남기기</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-row">
+        <span class="filter-title">상태</span>
+        <div class="status-seg" data-group="status-a"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-title">분야</span>
+        <div class="category-scroll" data-group="category-a"></div>
+      </div>
+    </div>
+
+    <div class="grid" data-cards="a"></div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="org-name">지구인상점</div>
+        <div>우리 동네 목소리함 — 주민 의견을 접수하고 처리 결과를 안내합니다.</div>
+        <div class="links"><a href="#">이용안내</a><a href="#">개인정보처리방침</a></div>
+        <div style="margin-top:8px;">© 2026 지구인상점</div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ============================== 안 B ============================== -->
+  <section class="variant v-b" id="v-b">
+    <header class="site-header">
+      <img src="data:image/png;base64,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" alt="지구인상점 아이콘">
+      <span class="org-name">지구인상점</span>
+      <span class="org-tag">운영</span>
+    </header>
+
+    <div class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">우리 동네 목소리함</span>
+        <h1>동네를 다니다 마주친 불편함,<br>편하게 글로 남겨주세요</h1>
+        <p>남겨주신 의견은 지구인상점이 하나씩 확인해서 접수하고, 처리가 진행되는 동안과 끝난 뒤에 어떻게 처리됐는지 다시 알려드립니다.</p>
+        <button type="button" class="cta-btn">의견 남기기</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-row">
+        <span class="filter-title">상태</span>
+        <div class="status-seg" data-group="status-b"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-title">분야</span>
+        <div class="category-scroll" data-group="category-b"></div>
+      </div>
+    </div>
+
+    <div class="grid" data-cards="b"></div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="org-name">지구인상점</div>
+        <div>우리 동네 목소리함 — 주민 의견을 접수하고 처리 결과를 안내합니다.</div>
+        <div class="links"><a href="#">이용안내</a><a href="#">개인정보처리방침</a></div>
+        <div style="margin-top:8px;">© 2026 지구인상점</div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ============================== 안 C ============================== -->
+  <section class="variant v-c" id="v-c">
+    <header class="site-header">
+      <img src="data:image/png;base64,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" alt="지구인상점 아이콘">
+      <span class="org-name">지구인상점</span>
+      <span class="org-tag">운영</span>
+    </header>
+
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>우리 동네 목소리함</h1>
+          <p>가로등, 놀이터, 인도… 생활 속에서 겪은 불편이나 제안을 남기면, 지구인상점이 모아서 처리하고 진행 상황을 다시 알려드려요.</p>
+          <button type="button" class="cta-btn">의견 남기기</button>
+        </div>
+        <div class="flow">
+          <div class="flow-step"><div class="dot">1</div><span>접수</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="dot">2</div><span>처리중</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="dot">3</div><span>완료</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-row">
+        <span class="filter-title">상태</span>
+        <div class="status-seg" data-group="status-c"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-title">분야</span>
+        <div class="category-scroll" data-group="category-c"></div>
+      </div>
+    </div>
+
+    <div class="grid" data-cards="c"></div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="org-name">지구인상점</div>
+        <div>우리 동네 목소리함 — 주민 의견을 접수하고 처리 결과를 안내합니다.</div>
+        <div class="links"><a href="#">이용안내</a><a href="#">개인정보처리방침</a></div>
+        <div style="margin-top:8px;">© 2026 지구인상점</div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ============================== 안 D (히어로: 안1 / 본문: 안3) ============================== -->
+  <section class="variant v-d" id="v-d">
+    <header class="site-header">
+      <img src="data:image/png;base64,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" alt="지구인상점 아이콘">
+      <span class="org-name">지구인상점</span>
+      <span class="org-tag">운영</span>
+    </header>
+
+    <div class="hero">
+      <div class="hero-inner">
+        <h1>우리 동네 불편, 지금 바로 목소리를 남기세요</h1>
+        <p>가로등부터 놀이터까지 — 남긴 의견은 지구인상점이 접수하고 처리 결과까지 알려드려요.</p>
+        <button type="button" class="cta-btn">의견 남기기</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-row">
+        <span class="filter-title">상태</span>
+        <div class="status-seg" data-group="status-d"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-title">분야</span>
+        <div class="category-scroll" data-group="category-d"></div>
+      </div>
+    </div>
+
+    <div class="grid" data-cards="d"></div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="org-name">지구인상점</div>
+        <div>우리 동네 목소리함 — 주민 의견을 접수하고 처리 결과를 안내합니다.</div>
+        <div class="links"><a href="#">이용안내</a><a href="#">개인정보처리방침</a></div>
+        <div style="margin-top:8px;">© 2026 지구인상점</div>
+      </div>
+    </footer>
+  </section>
+
+<script>
+  const ITEMS = [
+    {title:'골목 가로등이 계속 꺼져 있어요', excerpt:'저녁마다 학교 앞 골목이 너무 어두워서 아이들이 다니기 무서워해요. 확인 부탁드립니다.', category:'안전', status:'접수', author:'이O진', date:'2026.08.19'},
+    {title:'OO놀이터 그네가 삐걱거려요', excerpt:'그네를 탈 때마다 쇠 마찰음이 심하게 나요. 기름칠이나 부품 교체가 필요해 보여요.', category:'시설물', status:'처리중', author:'박O수', date:'2026.08.17'},
+    {title:'버스정류장 앞 쓰레기가 안 치워져요', excerpt:'며칠째 정류장 옆에 쓰레기가 쌓여 있어서 냄새도 나고 보기에도 안 좋아요.', category:'환경/미화', status:'완료', author:'최O영', date:'2026.08.10'},
+    {title:'인도 보도블록이 깨져 있어요', excerpt:'유모차가 지나가기 힘들 정도로 블록이 들뜨고 깨져 있어요. 넘어질까 걱정돼요.', category:'도로', status:'접수', author:'정O훈', date:'2026.08.19'},
+    {title:'공원 운동기구 손잡이가 헐거워요', excerpt:'철봉 옆 운동기구 손잡이가 흔들려서 사용하다 다칠 것 같아요.', category:'시설물', status:'처리중', author:'김O래', date:'2026.08.14'}
+  ];
+
+  const CATEGORIES = ['전체','안전','시설물','환경/미화','도로','소음','주차','기타'];
+  const STATUSES = ['전체','접수','처리중','완료'];
+
+  const PHOTO_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5L9 17"></path></svg>`;
+
+  function cardHTML(item){
+    return `
+      <div class="card">
+        <div class="photo-ph">${PHOTO_ICON}</div>
+        <div class="card-body">
+          <div class="pill-row">
+            <span class="status-pill st-${item.status}">${item.status}</span>
+            <span class="category-pill">${item.category}</span>
+          </div>
+          <p class="card-title">${item.title}</p>
+          <p class="card-excerpt">${item.excerpt}</p>
+          <div class="card-meta"><span>${item.author}</span><span>${item.date}</span></div>
+        </div>
+      </div>`;
+  }
+
+  document.querySelectorAll('[data-cards]').forEach(el=>{
+    el.innerHTML = ITEMS.map(cardHTML).join('');
+  });
+
+  document.querySelectorAll('[data-group^="status-"]').forEach(el=>{
+    el.className += ' status-seg';
+    el.innerHTML = STATUSES.map((s,i)=>`<button type="button" class="${i===0?'active':''}">${s}</button>`).join('');
+    el.addEventListener('click', e=>{
+      if(e.target.tagName!=='BUTTON') return;
+      el.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      e.target.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('[data-group^="category-"]').forEach(el=>{
+    el.innerHTML = CATEGORIES.map((c,i)=>`<button type="button" class="${i===0?'active':''}">${c}</button>`).join('');
+    el.addEventListener('click', e=>{
+      if(e.target.tagName!=='BUTTON') return;
+      el.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      e.target.classList.add('active');
+    });
+  });
+
+  const DESCS = {
+    'v-a': '정보 밀도: 빽빽하게 · 사진: 작게(썸네일) · 히어로: 강한 한 줄 + 색 블록',
+    'v-b': '정보 밀도: 여유 있게 · 사진: 크게(배너) · 히어로: 차분한 안내형 문구',
+    'v-c': '정보 밀도: 중간 · 사진: 중간 · 히어로: 접수→처리중→완료 흐름 안내',
+    'v-d': '히어로: 안 1의 강한 한 줄 + 색 블록 · 필터/목록/푸터: 안 3의 중간 밀도·중간 사진 구성'
+  };
+  const tabs = document.querySelectorAll('.picker-tabs button');
+  const descEl = document.getElementById('picker-desc');
+  function activate(target){
+    tabs.forEach(b=>b.classList.toggle('active', b.dataset.target===target));
+    document.querySelectorAll('.variant').forEach(v=>v.classList.toggle('active', v.id===target));
+    descEl.textContent = DESCS[target];
+  }
+  tabs.forEach(b=>b.addEventListener('click', ()=>activate(b.dataset.target)));
+  activate('v-a');
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "overall": 100,
+  "checks": {
+    "contrast": {
+      "score": 100,
+      "status": "pass",
+      "message": "Excellent contrast across all assets",
+      "details": {
+        "checkedAssets": 8,
+        "avgScore": 100
+      }
+    },
+    "safeArea": {
+      "score": 100,
+      "status": "pass",
+      "message": "All maskable icons comply with safe area requirements",
+      "details": {
+        "totalMaskableAssets": 2,
+        "compliantAssets": 2
+      }
+    },
+    "clarity": {
+      "score": 100,
+      "status": "pass",
+      "message": "Small icons are clear and detailed",
+      "details": {
+        "checkedAssets": 3,
+        "avgClarityScore": 100
+      }
+    },
+    "compliance": {
+      "score": 100,
+      "status": "pass",
+      "message": "All required platform assets are present",
+      "details": {
+        "foundAssets": 6,
+        "requiredAssets": 6
+      }
+    }
+  },
+  "suggestions": []
+}
