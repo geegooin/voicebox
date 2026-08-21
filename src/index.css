@@ -180,6 +180,15 @@ a { color: inherit; }
 .field { margin-bottom: 24px; }
 .field-label { display: block; font-size: 13px; font-weight: 600; color: var(--on-surface-variant); margin-bottom: 6px; }
 
+.field-label-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.field-label-row .field-label { margin-bottom: 0; }
+
+.ai-assist-btn {
+  appearance: none; border: none; background: var(--secondary-container); color: var(--on-secondary-container);
+  border-radius: 999px; font-weight: 700; font-size: 12.5px; padding: 6px 14px; font-family: inherit;
+}
+.ai-assist-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
 .text-input, .textarea-input {
   width: 100%; background: var(--surface-container); border: 1px solid transparent;
   border-radius: 8px; padding: 10px 12px; font-size: 16px; font-family: inherit;

@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import PhotoUploadField from '../components/PhotoUploadField'
 import { usePosts } from '../context/PostsContext'
 import { useAuth } from '../context/AuthContext'
+import { supabase } from '../lib/supabaseClient'
 import { CATEGORIES } from '../data/seedPosts'
 
 export default function Write() {
@@ -18,12 +19,50 @@ export default function Write() {
   const [photo, setPhoto] = useState(null)
   const [saving, setSaving] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiError, setAiError] = useState('')
 
   if (!user) {
     return <Navigate to="/login" replace />
   }
 
   const canSave = title.trim() && content.trim() && category && !saving
+
+  const handleAiAssist = async () => {
+    if (!content.trim()) {
+      setAiError('먼저 짧게라도 내용을 적어주세요.')
+      return
+    }
+    setAiLoading(true)
+    setAiError('')
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession()
+      const response = await fetch('/api/ai-draft', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session?.access_token}`,
+        },
+        body: JSON.stringify({ draft: content }),
+      })
+      const result = await response.json()
+      if (!response.ok) {
+        throw new Error(result.error || 'AI 작성에 실패했어요.')
+      }
+      setTitle(result.title)
+      setContent(result.content)
+      if (CATEGORIES.includes(result.category)) {
+        setCategory(result.category)
+      }
+    } catch (err) {
+      console.error(err)
+      setAiError(err.message || 'AI 작성에 실패했어요. 잠시 후 다시 시도해주세요.')
+    } finally {
+      setAiLoading(false)
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -62,16 +101,27 @@ export default function Write() {
           </div>
 
           <div className="field">
-            <label className="field-label" htmlFor="content">
-              내용
-            </label>
+            <div className="field-label-row">
+              <label className="field-label" htmlFor="content">
+                내용
+              </label>
+              <button
+                type="button"
+                className="ai-assist-btn"
+                onClick={handleAiAssist}
+                disabled={aiLoading}
+              >
+                {aiLoading ? 'AI 작성 중…' : 'AI 작성도우미'}
+              </button>
+            </div>
             <textarea
               id="content"
               className="textarea-input"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              placeholder="언제, 어디서, 어떤 일이 있었는지 자세히 적어주시면 처리에 도움이 됩니다"
+              placeholder="언제, 어디서, 어떤 일이 있었는지 짧게라도 적으면 AI 작성도우미가 민원글로 다듬어드려요"
             />
+            {aiError && <p className="error-message">{aiError}</p>}
           </div>
 
           <div className="field">
