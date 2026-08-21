@@ -1,14 +1,21 @@
-import { useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import PhotoPlaceholder from './PhotoPlaceholder'
 
 export default function PhotoUploadField({ value, onChange }) {
   const inputRef = useRef(null)
 
+  const previewUrl = useMemo(() => (value ? URL.createObjectURL(value) : null), [value])
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl)
+    }
+  }, [previewUrl])
+
   const handleFile = (e) => {
     const file = e.target.files?.[0]
     if (!file) return
-    const url = URL.createObjectURL(file)
-    onChange(url)
+    onChange(file)
   }
 
   const handleRemove = () => {
@@ -19,9 +26,9 @@ export default function PhotoUploadField({ value, onChange }) {
   return (
     <div className="field">
       <label className="field-label">사진 (선택, 최대 1장)</label>
-      {value ? (
+      {previewUrl ? (
         <div className="photo-preview">
-          <img src={value} alt="첨부한 사진 미리보기" />
+          <img src={previewUrl} alt="첨부한 사진 미리보기" />
           <button
             type="button"
             className="photo-remove-btn"

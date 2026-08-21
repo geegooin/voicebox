@@ -209,6 +209,8 @@ a { color: inherit; }
 
 .form-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }
 
+.error-message { color: var(--secondary); font-size: 13px; margin: -12px 0 0; }
+
 /* ---------- 의견 상세 ---------- */
 .detail-container { max-width: 720px; margin: 0 auto; padding: 24px 20px 64px; }
 .back-link { display: inline-block; font-size: 13px; font-weight: 500; color: var(--on-surface-variant); text-decoration: none; margin-bottom: 16px; }

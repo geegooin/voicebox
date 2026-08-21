@@ -14,14 +14,24 @@ export default function Write() {
   const [content, setContent] = useState('')
   const [category, setCategory] = useState(null)
   const [photo, setPhoto] = useState(null)
+  const [saving, setSaving] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const canSave = title.trim() && content.trim() && category
+  const canSave = title.trim() && content.trim() && category && !saving
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!canSave) return
-    addPost({ title: title.trim(), content: content.trim(), category, photo })
-    navigate('/')
+    setSaving(true)
+    setErrorMessage('')
+    try {
+      await addPost({ title: title.trim(), content: content.trim(), category, photo })
+      navigate('/')
+    } catch (err) {
+      console.error(err)
+      setErrorMessage('저장에 실패했어요. 잠시 후 다시 시도해주세요.')
+      setSaving(false)
+    }
   }
 
   return (
@@ -76,12 +86,14 @@ export default function Write() {
 
           <PhotoUploadField value={photo} onChange={setPhoto} />
 
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+
           <div className="form-actions">
             <Link to="/" className="btn-outline">
               취소
             </Link>
             <button type="submit" className="cta-btn" disabled={!canSave}>
-              저장
+              {saving ? '저장 중…' : '저장'}
             </button>
           </div>
         </form>

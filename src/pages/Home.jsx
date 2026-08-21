@@ -8,7 +8,7 @@ import PostCard from '../components/PostCard'
 import { usePosts } from '../context/PostsContext'
 
 export default function Home() {
-  const { posts } = usePosts()
+  const { posts, loading } = usePosts()
   const [status, setStatus] = useState('전체')
   const [category, setCategory] = useState('전체')
 
@@ -33,7 +33,8 @@ export default function Home() {
           <PostCard key={post.id} post={post} />
         ))}
       </div>
-      {filtered.length === 0 && (
+      {loading && <p className="empty-state">불러오는 중…</p>}
+      {!loading && filtered.length === 0 && (
         <p className="empty-state">해당하는 의견이 아직 없어요.</p>
       )}
       <Footer />
