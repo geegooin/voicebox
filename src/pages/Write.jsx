@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, Navigate } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PhotoUploadField from '../components/PhotoUploadField'
 import { usePosts } from '../context/PostsContext'
+import { useAuth } from '../context/AuthContext'
 import { CATEGORIES } from '../data/seedPosts'
 
 export default function Write() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const { addPost } = usePosts()
 
   const [title, setTitle] = useState('')
@@ -16,6 +18,10 @@ export default function Write() {
   const [photo, setPhoto] = useState(null)
   const [saving, setSaving] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+
+  if (!user) {
+    return <Navigate to="/login" replace />
+  }
 
   const canSave = title.trim() && content.trim() && category && !saving
 

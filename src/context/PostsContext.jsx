@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import { useAuth } from './AuthContext'
 
 const PostsContext = createContext(null)
 
@@ -22,10 +23,12 @@ function mapRowToPost(row) {
     author: row.author,
     date: formatDate(row.created_at),
     photo: row.photo_url,
+    userId: row.user_id,
   }
 }
 
 export function PostsProvider({ children }) {
+  const { user, profile } = useAuth()
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -52,6 +55,8 @@ export function PostsProvider({ children }) {
   }, [])
 
   const addPost = async ({ title, content, category, photo }) => {
+    if (!user) throw new Error('로그인이 필요합니다.')
+
     let photoUrl = null
 
     if (photo) {
@@ -67,9 +72,11 @@ export function PostsProvider({ children }) {
       photoUrl = publicUrlData.publicUrl
     }
 
+    const author = profile?.display_name || user.email || '익명'
+
     const { data, error } = await supabase
       .from('voices')
-      .insert({ title, content, category, author: '익명', photo_url: photoUrl })
+      .insert({ title, content, category, author, photo_url: photoUrl, user_id: user.id })
       .select()
       .single()
 
@@ -80,7 +87,7 @@ export function PostsProvider({ children }) {
     return newPost
   }
 
-  const value = useMemo(() => ({ posts, loading, addPost }), [posts, loading])
+  const value = useMemo(() => ({ posts, loading, addPost }), [posts, loading, user, profile])
 
   return <PostsContext.Provider value={value}>{children}</PostsContext.Provider>
 }

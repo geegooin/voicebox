@@ -57,6 +57,11 @@ a { color: inherit; }
 .site-header .org-name { font-size: 14px; font-weight: 700; color: var(--on-surface); }
 .site-header .org-tag { font-size: 11px; color: var(--on-surface-variant); margin-left: 2px; }
 
+.header-auth { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.header-auth-link { font-size: 13px; font-weight: 600; color: var(--on-surface-variant); text-decoration: none; }
+.header-auth-link-primary { color: var(--primary-hover); }
+.site-header .header-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+
 /* ---------- 히어로 ---------- */
 .hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
@@ -227,3 +232,72 @@ a { color: inherit; }
 .detail-title { font-size: 28px; font-weight: 700; line-height: 38px; letter-spacing: -0.01em; margin: 12px 0 8px; color: var(--on-surface); }
 .detail-meta { display: flex; gap: 10px; font-size: 13px; font-weight: 500; color: var(--on-surface-variant); margin-bottom: 24px; }
 .detail-body { font-size: 16px; line-height: 26px; color: var(--on-surface); white-space: pre-wrap; }
+
+/* ---------- 인증 게이트 (로그인/회원가입) ---------- */
+.gate-screen {
+  min-height: calc(100vh - 300px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 20px;
+}
+.gate-card {
+  background: var(--surface); border-radius: 24px; box-shadow: var(--shadow-md);
+  padding: 40px 32px; max-width: 360px; width: 100%;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.gate-icon { width: 40px; height: 40px; border-radius: 22%; margin-bottom: 16px; }
+.gate-title { font-size: 20px; font-weight: 700; line-height: 28px; margin: 0 0 8px; color: var(--on-surface); }
+.gate-desc { font-size: 14px; line-height: 22px; color: var(--on-surface-variant); margin: 0 0 24px; }
+.gate-switch-link { margin-top: 20px; font-size: 13px; font-weight: 500; color: var(--on-surface-variant); text-decoration: none; }
+.gate-switch-link:hover { color: var(--on-surface); }
+
+.google-btn {
+  width: 100%; height: 44px; border-radius: 8px;
+  background: #fff; border: 1px solid #dadce0; color: #3c4043;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 15px; font-weight: 500; font-family: inherit;
+}
+.google-btn:hover { background: #f7f8f8; }
+
+/* ---------- 확인 모달 ---------- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(74,65,48,0.35);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; z-index: 100;
+}
+.modal-card {
+  background: var(--surface); border-radius: 24px; box-shadow: var(--shadow-lg);
+  padding: 28px 24px; max-width: 360px; width: 100%;
+}
+.modal-message { font-size: 15px; line-height: 24px; color: var(--on-surface); margin: 0 0 20px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; }
+
+/* ---------- 토스트 ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%);
+  background: var(--on-surface); color: var(--surface);
+  padding: 12px 20px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  box-shadow: var(--shadow-md); z-index: 200; white-space: nowrap;
+}
+
+/* ---------- 탭 ---------- */
+.tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--outline); }
+.tabs button {
+  appearance: none; border: none; background: none; font-family: inherit;
+  padding: 14px 4px; font-size: 15px; font-weight: 600; color: var(--on-surface-variant);
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tabs button.active { color: var(--on-surface); font-weight: 700; border-bottom-color: var(--primary); }
+.tab-content { padding-top: 24px; }
+
+/* ---------- 마이페이지 ---------- */
+.mypage-container { max-width: 1200px; margin: 0 auto; padding: 32px 20px 64px; }
+.mypage-grid { padding: 0; }
+
+.info-list { max-width: 480px; }
+.info-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 0; border-bottom: 1px solid var(--outline-variant);
+}
+.info-label { font-size: 13px; font-weight: 500; color: var(--on-surface-variant); }
+.info-value { font-size: 16px; color: var(--on-surface); }
+.signout-btn { margin-top: 24px; }
